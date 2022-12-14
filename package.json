@@ -1,0 +1,22 @@
+{
+  "name": "vote-api",
+  "version": "1.0.0",
+  "description": "api untuk apk voting",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lumenelit/vote-api.git"
+  },
+  "author": "muchklis-bene",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lumenelit/vote-api/issues"
+  },
+  "homepage": "https://github.com/lumenelit/vote-api#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
