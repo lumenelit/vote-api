@@ -1,15 +1,15 @@
-exports.create = (req, res) => {
+export function create(req, res) {
     //
-};
-exports.list = (req, res) => {
+}
+export function list(req, res) {
     //
-};
-exports.get = (req, res) => {
+}
+export function get(req, res) {
     //
-};
-exports.submit = (req, res) => {
+}
+export function submit(req, res) {
     //
-};
-exports.report = (req, res) => {
+}
+export function report(req, res) {
     //
-};
+}

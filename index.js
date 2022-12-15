@@ -1,6 +1,6 @@
-const express = require("express");
+import express from "express";
 const app = express();
-const routes = require("./src/router");
+import routes from "./src/router/index.js";
 const PORT = 4000;
 app.use("/", routes);
 app.listen(PORT, () => {

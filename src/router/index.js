@@ -1,11 +1,12 @@
-const express = require("express");
-const router = express.Router();
-const form = require("../controllers/form");
+import { Router } from "express";
+const router = Router();
+import { list, get, create, submit, report } from "../controllers/form.js";
 
-router.get("/forms", form.list);
-router.get("/forms/:token", form.get);
-router.post("/forms/:token", form.create);
-router.post("/forms/:token/submit", form.submit);
-router.get("/forms/:token/report", form.report);
+router.get("/forms", list);
+router.get("/forms/:token", get);
+router.post("/forms/:token", create);
+router.post("/forms/:token/submit", submit);
+router.get("/forms/:token/report", report);
 
-module.exports = router;
+export default router;
+
