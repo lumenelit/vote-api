@@ -1,12 +1,12 @@
-import { Router } from "express";
-const router = Router();
+import express from "express";
+const router = express.Router();
 import { list, get, create, submit, report } from "../controllers/form.js";
 
 router.get("/forms", list);
-router.get("/forms/:token", get);
-router.post("/forms/:token", create);
-router.post("/forms/:token/submit", submit);
-router.get("/forms/:token/report", report);
+router.get("/form/:token", get);
+router.post("/form/:token", create);
+router.post("/form/:token/submit", submit);
+router.get("/form/:token/report", report);
 
 export default router;
 
