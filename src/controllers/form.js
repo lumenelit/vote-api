@@ -13,8 +13,14 @@ export async function create(req, res) {
 export function list(req, res) {
   //
 }
-export function get(req, res) {
-  //
+export async function get(req, res) {
+  const docRef = doc(db,"forms", req.params.token);
+  const docSnap = await getDoc(docRef);
+  if (docSnap.exists()) {
+    res.json(docSnap.data());
+  } else {
+    res.send("No such document!")
+  }
 }
 export function submit(req, res) {
   //
