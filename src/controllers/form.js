@@ -3,7 +3,7 @@ import {
   setDoc,
   getFirestore,
   collection,
-  getDocs,
+  getDoc,
   getDoc
 } from "firebase/firestore";
 import firebase from "../config/firebase.js";
