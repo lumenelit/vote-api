@@ -37,8 +37,8 @@ export async function get(req, res) {
   }
 }
 export function submit(req, res) {
-  //
+  //test
 }
 export function report(req, res) {
-  //
+  //test
 }
