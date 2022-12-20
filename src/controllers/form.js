@@ -4,9 +4,7 @@ import {
   getFirestore,
   collection,
   getDoc,
-  getDocs,
-  updateDoc, 
-  arrayUnion
+  getDocs
 } from "firebase/firestore";
 import firebase from "../config/firebase.js";
 const db = getFirestore(firebase);
@@ -38,13 +36,8 @@ export async function get(req, res) {
     res.send("No such document!");
   }
 }
-export async function submit(req, res) {
-  const noreg = req.body.noreg;
-  const reF = doc(db, "forms", req.params.token);
-  await updateDoc(reF, {
-    VotedList: arrayUnion(noreg)
-});
-  res.send("submitted");
+export function submit(req, res) {
+  //
 }
 export function report(req, res) {
   //
