@@ -6,8 +6,7 @@ import {
   getDoc,
   getDocs,
   updateDoc, 
-  arrayUnion,
-  arrayRemove
+  arrayUnion
 } from "firebase/firestore";
 import firebase from "../config/firebase.js";
 const db = getFirestore(firebase);
@@ -40,13 +39,12 @@ export async function get(req, res) {
   }
 }
 export async function submit(req, res) {
-  const washingtonRef = doc(db, "forms", req.params.token);
-  await updateDoc(washingtonRef, {
-    VotedList: arrayUnion("blablabala")
+  const noreg = req.body.noreg;
+  const reF = doc(db, "forms", req.params.token);
+  await updateDoc(reF, {
+    VotedList: arrayUnion(noreg)
 });
-  await updateDoc(washingtonRef, {
-    VotedList: arrayRemove("blablabala")
-});
+  res.send("submitted");
 }
 export function report(req, res) {
   //
