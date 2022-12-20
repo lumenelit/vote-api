@@ -4,14 +4,16 @@ import {
   getFirestore,
   collection,
   getDoc,
-  getDoc
+  getDocs
 } from "firebase/firestore";
 import firebase from "../config/firebase.js";
 const db = getFirestore(firebase);
 
 export async function create(req, res) {
   const { information, fields } = req.body;
-  await setDoc(doc(db, "forms", req.params.token), {
+  // create token
+  const token = Math.random().toString(36).substr(2, 9);
+  await setDoc(doc(db, "forms", token), {
     information,
     fields,
     VotedList: [],
