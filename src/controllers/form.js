@@ -4,7 +4,10 @@ import {
   getFirestore,
   collection,
   getDoc,
-  getDocs
+  getDocs,
+  updateDoc, 
+  arrayUnion,
+  arrayRemove
 } from "firebase/firestore";
 import firebase from "../config/firebase.js";
 const db = getFirestore(firebase);
@@ -36,8 +39,14 @@ export async function get(req, res) {
     res.send("No such document!");
   }
 }
-export function submit(req, res) {
-  //
+export async function submit(req, res) {
+  const washingtonRef = doc(db, "forms", req.params.token);
+  await updateDoc(washingtonRef, {
+    VotedList: arrayUnion("blablabala")
+});
+  await updateDoc(washingtonRef, {
+    VotedList: arrayRemove("blablabala")
+});
 }
 export function report(req, res) {
   //
