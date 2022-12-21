@@ -46,6 +46,15 @@ export async function submit(req, res) {
 });
   res.send("submitted");
 }
-export function report(req, res) {
-  //
+export async function report(req, res) {
+  const docRef = doc(db,"forms",req.params.token);
+  const docSnap = await getDoc(docRef);
+  if (docSnap.exists()) {
+    const data = docSnap.data()
+    const title = data.fields[0].options[0].title;
+    const votes = data.fields[0].options[0].votes;
+    res.json({title,votes});
+  } else {
+    res.send("No such document!")
+  }
 }
