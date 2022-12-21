@@ -7,6 +7,7 @@ import {
   collection,
   getDocs,
   updateDoc,
+  increment,
 } from "firebase/firestore";
 import firebase from "../config/firebase.js";
 const db = getFirestore(firebase);
@@ -48,12 +49,7 @@ export async function submit(req, res) {
 
   // Set the "capital" field of the city 'DC'
   await updateDoc(upDocs, {
-    information: {
-      name: "Saylendra",
-      update: "old",
-    },
-    VotedList: [],
-    fields: ["Example", "Description"],
+    "fields.options.votes": increment(2),
   }).then(res.status(201).end());
 }
 export function report(req, res) {
