@@ -40,8 +40,8 @@ export async function get(req, res) {
 }
 export async function submit(req, res) {
   const noreg = req.body.noreg;
-  const reF = doc(db, "forms", req.params.token);
-  await updateDoc(reF, {
+  const reFF = doc(db, "forms", req.params.token);
+  await updateDoc(reFF, {
     VotedList: arrayUnion(noreg)
 });
   res.send("submitted");
