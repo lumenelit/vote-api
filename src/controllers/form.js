@@ -17,7 +17,7 @@ export async function create(req, res) {
     information,
     fields,
     VotedList: [],
-  }).then(res.status(201).end());
+  }).then(res.status(201).json({ token }));
 }
 export async function list(req, res) {
   const querySnapshot = await getDocs(collection(db, "forms"));
