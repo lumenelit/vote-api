@@ -41,10 +41,15 @@ export async function get(req, res) {
 export async function submit(req, res) {
   const noreg = req.body.noreg;
   const reFF = doc(db, "forms", req.params.token);
+  const upDocs = doc(db, "forms", req.params.token);
+  const docSnap = await getDoc(upDocs);
+  const data = docSnap.data();
+  const fields = data.fields;
+  fields[0].options[0].votes += 1;
+  await updateDoc(upDocs, { fields }).then(res.status(201).end());
   await updateDoc(reFF, {
     VotedList: arrayUnion(noreg)
-});
-  res.send("submitted");
+  });
 }
 export async function report(req, res) {
   const docRef = doc(db,"forms",req.params.token);
