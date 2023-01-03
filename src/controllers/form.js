@@ -22,8 +22,9 @@ export async function create(req, res) {
 export async function list(req, res) {
   const querySnapshot = await getDocs(collection(db, "forms"));
   const data = querySnapshot.docs.map((doc) => {
-    // doc.data() is never undefined for query doc snapshots
-    return doc.data();
+  const id = doc.data()
+  id.token = doc.id
+  return id;
   });
   res.json(data);
 }
